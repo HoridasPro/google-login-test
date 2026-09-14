@@ -24,7 +24,6 @@
         Sign in with your Google account
       </p>
 
-      <!-- Role Selection UI -->
       <div class="mb-6 text-left">
         <label
           class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2"
@@ -60,7 +59,6 @@
         </div>
       </div>
 
-      <!-- Google Sign-in Button -->
       <div
         id="g_id_onload"
         data-client_id="238495677901-7q3u1407t2n4doa1j5imcuhckfrc2jkh.apps.googleusercontent.com"
@@ -88,7 +86,7 @@
           <label class="block text-xs font-semibold text-slate-500"
             >Google ID Token:</label
           >
-          <!-- 🟢 Copy Button -->
+
           <button
             onclick="copyToken()"
             id="copyBtn"
@@ -109,7 +107,6 @@
     <script src="https://accounts.google.com/gsi/client" async></script>
 
     <script>
-      // ১. গুগল লগইন ফাংশন
       async function handleCredentialResponse(response) {
         const statusMsg = document.getElementById("statusMessage");
         const tokenContainer = document.getElementById("tokenContainer");
@@ -125,7 +122,6 @@
           'input[name="userRole"]:checked',
         ).value;
 
-        // Google Credential (ID Token) পাওয়ার সাথে সাথে তা LocalStorage-এ সংরক্ষণ করা
         const googleIdToken = response.credential;
         localStorage.setItem("googleIdToken", googleIdToken);
 
@@ -145,7 +141,6 @@
           const result = await res.json();
 
           if (res.ok && result.success) {
-            // UI-তে Google ID Token প্রদর্শন করা
             googleIdTokenInput.value = googleIdToken;
             tokenContainer.classList.remove("hidden");
 
@@ -162,7 +157,6 @@
         }
       }
 
-      // 🟢 ২. Token Copy করার ফাংশন
       function copyToken() {
         const tokenInput = document.getElementById("googleIdTokenInput");
         const copyBtn = document.getElementById("copyBtn");
